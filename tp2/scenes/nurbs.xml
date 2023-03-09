@@ -1,0 +1,177 @@
+<sxs>
+    <scene root="nurbs" axis_length="5"/>
+
+    <views default="Origin">
+        <perspective id="Origin" near="0.1" far="10000000" angle="45">
+            <from x="0.0" y="0.0" z="-10.0" />
+            <to x="0.0" y="0.0" z="0.0" />
+        </perspective>
+    </views>
+
+    <ambient>
+        <ambient r="0.2" g="0.2" b="0.2" a="1.0" />
+        <background r="0.0" g="0.0" b="0.0" a="1.0" />
+    </ambient>
+
+    <lights>
+        <omni id="demoLight" enabled="1">
+            <location x="9.8" y="11.9" z="10" w="1.0" />
+            <ambient r="0" g="0" b="0" a="1.0" />
+            <diffuse r="1.0" g="1.0" b="1.0" a="1.0" />
+            <specular r="1.0" g="1.0" b="1.0" a="1.0" />
+            <attenuation constant="1.0" linear="0.0" quadratic="0.0" />
+        </omni>
+    </lights>
+
+    <textures>
+        <texture id="starsTexture" file="scenes/images/stars.jpg" />
+    </textures>
+
+    <materials>
+        <material id="demoMaterial" shininess="10">
+            <emission r="0.0" g="0.0" b="0.0" a="1.0" />
+            <ambient r="1.0" g="0.0" b="0.0" a="1.0" />
+            <diffuse r="0.6" g="0.0" b="0.0" a="1.0" />
+            <specular r="0.6" g="0.0" b="0.0" a="1.0" />
+        </material>
+    </materials>
+
+    <transformations>
+        <transformation id="rotationZ90">
+            <rotate axis="z" angle="90" />
+        </transformation>
+    </transformations>
+
+    <animations>
+    </animations>
+
+    <primitives>
+        <primitive id="square" />
+            <patch degree_u="1" parts_u="20" degree_v="1" parts_v="20">
+                <controlpoint x="0.0" y="0.0" z="0.0" />
+                <controlpoint x="0.0" y="1.0" z="0.0" />
+
+                <controlpoint x="1.0" y="0.0" z="0.0" />
+                <controlpoint x="1.0" y="1.0" z="0.0" />
+            </patch>
+        </primitive>
+        <primitive id="tentNurb">
+            <patch degree_u="1" parts_u="20" degree_v="2" parts_v="20">
+                <controlpoint x="0.0" y="0.0" z="0.0" />
+                <controlpoint x="0.0" y="0.5" z="1.0" />
+                <controlpoint x="0.0" y="1.0" z="0.0" />
+å
+                <controlpoint x="1.0" y="0.0" z="0.0" />
+                <controlpoint x="1.0" y="0.5" z="1.0" />
+                <controlpoint x="1.0" y="1.0" z="0.0" />
+            </patch>
+        </primitive>mitives>
+        <primitive id="rectangleNurb">
+       
+        <primitive id="barrelNurbHalf">
+            <patch degree_u="3" parts_u="20" degree_v="2" parts_v="20">
+                <controlpoint x="1.0" y="0.0" z="0.0" />
+                <controlpoint x="1.5" y="0.0" z="0.5" />
+                <controlpoint x="1.0" y="0.0" z="1.0" />
+
+                <controlpoint x="1.0" y="1.4" z="0.0" />
+                <controlpoint x="1.7" y="1.4" z="0.5" />
+                <controlpoint x="1.0" y="1.4" z="1.0" />
+                
+                <controlpoint x="-1.0" y="1.4" z="0.0" />
+                <controlpoint x="-1.7" y="1.4" z="0.5" />
+                <controlpoint x="-1.0" y="1.4" z="1.0" />
+                
+                <controlpoint x="-1.0" y="0.0" z="0.0" />
+                <controlpoint x="-1.5" y="0.0" z="0.5" />
+                <controlpoint x="-1.0" y="0.0" z="1.0" />
+            </patch>
+        </primitive>
+        <primitive id="barrelNurbBaseHalf">
+            <patch degree_u="3" parts_u="20" degree_v="1" parts_v="20">
+                <controlpoint x="-1.0" y="0.0" z="1.0"  />
+                <controlpoint x="-1.0" y="0.0" z="1.0"  />
+
+                <controlpoint x="-1.0" y="0.0" z="1.0"  />
+                <controlpoint x="-1.0" y="1.4" z="1.0"  />
+
+                <controlpoint x="1.0" y="0.0" z="1.0"   />
+                <controlpoint x="1.0" y="1.4" z="1.0"   />
+                
+                <controlpoint x="1.0" y="0.0" z="1.0"   />
+                <controlpoint x="1.0" y="0.0" z="1.0"   />
+
+            </patch>
+        </primitive>
+    </primitives>
+
+    <components>
+
+        <!-- Nurbs scene -->
+        <component id="nurbs">
+            <transformation>
+            </transformation>
+            <materials>
+                <material id="demoMaterial" />
+            </materials>
+                <texture id="none" />
+            <children>
+                <componentref id="barrel" />
+            </children>
+        </component>
+
+        <!-- Barrel -->
+        <component id="barrel">
+            <transformation>
+            </transformation>
+            <materials>
+                <material id="demoMaterial" />
+            </materials>
+                <texture id="none" />
+            <children>
+                <componentref id="barrelHalf1" />
+                <componentref id="barrelHalf2" />
+            </children>
+        </component>
+        <!-- Barrel Top Half -->
+        <component id="barrelTopHalf">
+            <transformation>
+                <rotate axis="y" angle="180" />
+                <translate x="0.0" y="0.0" z="-1.0" />
+            </transformation>
+            <materials>
+                <material id="demoMaterial" />
+            </materials>
+                <texture id="none" />
+            <children>
+                <primitiveref id="barrelNurbBaseHalf" />
+            </children>
+        </component>
+        <!-- Barrel Halfs -->
+        <component id="barrelHalf1">
+            <transformation>
+            </transformation>
+            <materials>
+                <material id="demoMaterial" />
+            </materials>
+                <texture id="none" />
+            <children>
+                <primitiveref id="barrelNurbHalf" />
+                <primitiveref id="barrelNurbBaseHalf" />
+                <componentref id="barrelTopHalf" />
+            </children>
+        </component>
+        <component id="barrelHalf2">
+            <transformation>
+                <rotate axis="z" angle="180" />
+            </transformation>
+            <materials>
+                <material id="demoMaterial" />
+            </materials>
+                <texture id="none" />
+            <children>
+                <componentref id="barrelHalf1" />
+            </children>
+        </component>
+   </components>
+</sxs>

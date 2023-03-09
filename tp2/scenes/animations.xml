@@ -1,0 +1,88 @@
+<sxs>
+    <scene root="nurbs" axis_length="5"/>
+
+    <views default="Origin">
+        <perspective id="Origin" near="0.1" far="10000000" angle="45">
+            <from x="7.0" y="4.0" z="10.0" />
+            <to x="0.0" y="0.0" z="0.0" />
+        </perspective>
+    </views>
+
+    <ambient>
+        <ambient r="0.2" g="0.2" b="0.2" a="1.0" />
+        <background r="0.0" g="0.0" b="0.0" a="1.0" />
+    </ambient>
+
+    <lights>
+        <omni id="demoLight" enabled="1">
+            <location x="9.8" y="11.9" z="10" w="1.0" />
+            <ambient r="0" g="0" b="0" a="1.0" />
+            <diffuse r="1.0" g="1.0" b="1.0" a="1.0" />
+            <specular r="1.0" g="1.0" b="1.0" a="1.0" />
+            <attenuation constant="1.0" linear="0.0" quadratic="0.0" />
+        </omni>
+    </lights>
+
+    <textures>
+        <texture id="starsTexture" file="scenes/images/stars.jpg" />
+    </textures>
+
+    <materials>
+        <material id="demoMaterial" shininess="10">
+            <emission r="0.0" g="0.0" b="0.0" a="1.0" />
+            <ambient r="1.0" g="0.0" b="0.0" a="1.0" />
+            <diffuse r="0.6" g="0.0" b="0.0" a="1.0" />
+            <specular r="0.6" g="0.0" b="0.0" a="1.0" />
+        </material>
+    </materials>
+
+    <transformations>
+        <transformation id="rotationZ90">
+            <rotate axis="z" angle="90" />
+        </transformation>
+    </transformations>
+
+    <animations>
+        <keyframeanim id="testAnim">
+            <keyframe instant="0.1">
+                <translation x="0.0" y="0.0" z="0.0" />
+                <rotation axis="z" angle="0" />
+                <rotation axis="y" angle="0" />
+                <rotation axis="x" angle="0" />
+                <scale sx="1.0" sy="1.0" sz="1.0" />
+            </keyframe>
+            
+            <keyframe instant="1.0">
+                <translation x="1.0" y="0.0" z="0.0" />
+                <rotation axis="z" angle="0" />
+                <rotation axis="y" angle="0" />
+                <rotation axis="x" angle="0" />
+                <scale sx="1.0" sy="1.0" sz="1.0" />
+            </keyframe>
+        </keyframeanim>
+    </animations>
+
+    <primitives>
+        <primitive id="squareUnit">
+            <rectangle x1="-0.5" y1="-0.5" x2="0.5" y2="0.5" />
+        </primitive>
+    </primitives>
+
+    <components>
+
+        <!-- Animations scene -->
+        <component id="nurbs">
+            <transformation>
+            </transformation>
+            <materials>
+                <material id="demoMaterial" />
+            </materials>
+            <texture id="none" />
+            <highlighted r="1.0" g="0.4" b="0.3" scale_h="2" />
+            <animation id="testAnim" />
+            <children>
+              <primitiveref id="squareUnit" />
+            </children>
+        </component>
+   </components>
+</sxs>

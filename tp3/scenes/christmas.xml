@@ -1,0 +1,986 @@
+<sxs>
+    <scene root="christmas" axis_length="5"/>
+
+    <views default="Origin">
+
+    </views>
+
+    <ambient>
+        <ambient r="0.2" g="0.2" b="0.2" a="1.0" />
+        <background r="0.0" g="0.0" b="0.0" a="1.0" />
+    </ambient>
+
+    <lights>
+        <spot id="animationLight" enabled="0" angle="2" exponent="1">
+            <location x="0.0" y="5.0" z="0.0" w="1.0" />
+            <target x="0.0" y="1.0" z="0.0" />
+            <ambient r="0.0" g="0.0" b="0.0" a="1.0" />
+            <diffuse r="1.0" g="1.0" b="1.0" a="1.0" />
+            <specular r="1.0" g="1.0" b="1.0" a="1.0" />
+            <attenuation constant="1.0" linear="0.0" quadratic="0.0" />
+        </spot>
+        <omni id="Sun Light" enabled="1">
+            <location x="-8000.0" y="0.0" z="2.0" w="1.0" />
+            <ambient r="1.0" g="1.0" b="1.0" a="1.0" />
+            <diffuse r="1.0" g="1.0" b="1.0" a="1.0" />
+            <specular r="1.0" g="1.0" b="1.0" a="1.0" />
+            <attenuation constant="0.0" linear="0.0004" quadratic="0.0" />  
+        </omni>
+    </lights>
+
+    <textures>
+        <texture id="starsTexture" file="scenes/images/stars.jpg" />
+        <texture id="snowTexture" file="scenes/images/snow.png" />
+
+        <texture id="player1Texture" file="scenes/images/dark.jpg" />
+        <texture id="player2Texture" file="scenes/images/white.jpg" />
+
+        <texture id="glassTexture" file="scenes/images/glass.jpg" />
+
+        <texture id="crownTexture" file="scenes/images/crown.jpg" />
+
+        <texture id="sledTexture" file="scenes/images/sled.bmp" />
+        <texture id="forestTexture" file="scenes/images/forest.png" />
+    </textures>
+
+    <materials>
+        <material id="defaultMaterial" shininess="10">
+            <emission r="0.5" g="0.5" b="0.5" a="1.0" />
+            <ambient r="0.2" g="0.25" b="0.32" a="1.0" />
+            <diffuse r="0.2" g="0.25" b="0.32" a="1.0" />
+            <specular r="0.2" g="0.25" b="0.32" a="1.0" />
+        </material>
+        
+        <material id="yellowMaterial" shininess="10">
+            <emission r="0.0" g="0.0" b="0.0" a="1.0" />
+            <ambient r="0.0" g="0.0" b="0.0" a="1.0" />
+            <diffuse r="0.0" g="0.0" b="0.0" a="1.0" />
+            <specular r="0.0" g="0.0" b="0.0" a="1.0" />
+        </material>
+
+        <material id="darkMaterial" shininess="50">
+            <emission r="0.0" g="0.0" b="0.0" a="1.0" />
+            <ambient r="0.15" g="0.15" b="0.15" a="1.0" />
+            <diffuse r="0.15" g="0.15" b="0.15" a="1.0" />
+            <specular r="0.15" g="0.15" b="0.15" a="1.0" />
+        </material>
+
+        <material id="redMaterial" shininess="50">
+            <emission r="0.0" g="0.0" b="0.0" a="1.0" />
+            <ambient r="0.61" g="0.14" b="0.14" a="1.0" />
+            <diffuse r="0.61" g="0.14" b="0.14" a="1.0" />
+            <specular r="0.61" g="0.14" b="0.14" a="1.0" />
+        </material>
+
+        <material id="blueMaterial" shininess="50">
+            <emission r="0.0" g="0.0" b="0.0" a="1.0" />
+            <ambient r="0.14" g="0.45" b="0.61" a="1.0" />
+            <diffuse r="0.14" g="0.45" b="0.61" a="1.0" />
+            <specular r="0.14" g="0.45" b="0.61" a="1.0" />
+        </material>
+
+        <material id="orangeMaterial" shininess="50">
+            <emission r="0.0" g="0.0" b="0.0" a="1.0" />
+            <ambient r="1.0" g="0.65" b="0.0" a="1.0" />
+            <diffuse r="1.0" g="0.65" b="0.0" a="1.0" />
+            <specular r="1.0" g="0.65" b="0.0" a="1.0" />
+        </material>
+
+        <material id="crownMaterial" shininess="10">
+            <emission r="0.855" g="0.647" b="0.125" a="1.0" />
+            <ambient r="0.855" g="0.647" b="0.125" a="1.0" />
+            <diffuse r="0.855" g="0.647" b="0.125" a="1.0" />
+            <specular r="0.855" g="0.647" b="0.125" a="1.0" />
+        </material>
+    </materials>
+
+    <transformations>
+        <transformation id="rotationZ90">
+            <rotate axis="z" angle="90" />
+        </transformation>
+    </transformations>
+
+    <animations>
+    </animations>
+
+    <primitives>
+        <primitive id="tentNurb">
+            <patch degree_u="1" parts_u="20" degree_v="2" parts_v="20">
+                <controlpoint x="0.0" y="0.0" z="0.0" />
+                <controlpoint x="0.0" y="0.5" z="1.0" />
+                <controlpoint x="0.0" y="1.0" z="0.0" />
+
+                <controlpoint x="1.0" y="0.0" z="0.0" />
+                <controlpoint x="1.0" y="0.5" z="1.0" />
+                <controlpoint x="1.0" y="1.0" z="0.0" />
+            </patch>
+        </primitive>
+         <primitive id="torus">
+            <torus inner="0.4" outer="0.4" slices="40" loops="40" />
+        </primitive>
+        <primitive id="sphere">
+            <sphere radius="1.0" slices="60" stacks="60" />
+        </primitive>
+        <primitive id="cone">
+            <cylinder base="0.1" top="0.0" height="0.4" slices="20" stacks="2" />
+        </primitive>
+        <primitive id="cylinder">
+            <cylinder base="0.01" top="0.01" height="2" slices="20" stacks="2" />
+        </primitive>
+        <primitive id="crown">
+            <torus inner="1.1" outer="2.2" slices="8" loops="7" />
+        </primitive>
+        <primitive id="crownPeak">
+            <cylinder base="1.1" top="0.0" height="2.0" slices="4" stacks="1" />
+        </primitive>
+        <primitive id="square20">
+            <rectangle x1="-10" y1="-10" x2="10" y2="10" />
+        </primitive>
+        <primitive id="sled">
+            <obj file="scenes/models/santa-sled.obj" />
+        </primitive>
+        <primitive id="bigTree">
+            <obj file="scenes/models/big-tree.obj" />
+        </primitive>
+        <primitive id="smallTree">
+            <obj file="scenes/models/small-tree.obj" />
+        </primitive>
+        <primitive id="nakedTree">
+            <obj file="scenes/models/naked-tree.obj" />
+        </primitive>
+        <primitive id="rock">
+            <obj file="scenes/models/rock.obj" />
+        </primitive>
+    </primitives>
+
+    <components>
+
+        <!-- Christmas scene -->
+        <component id="christmas">
+            <transformation>
+            </transformation>
+            <materials>
+                <material id="defaultMaterial" />
+            </materials>
+            <texture id="none" />
+            <children>
+                <componentref id="background" />
+                <componentref id="floor" />
+                <componentref id="forests" />
+            </children>
+        </component>
+
+        <component id="sled">
+            <transformation>
+                <translate x="0" y="0" z="0" />
+                <scale x="0.02" y="0.02" z="0.02" />
+            </transformation>
+            <materials>
+                <material id="defaultMaterial" />
+            </materials>
+            <texture id="sledTexture" />
+            <children>
+                <primitiveref id="sled" />
+            </children>
+        </component>
+        
+        <component id="forests">
+            <transformation>
+                <scale x="2" y="2" z="2" />
+            </transformation>
+            <materials>
+                <material id="defaultMaterial" />
+            </materials>
+            <texture id="forestTexture" />
+            <children>
+                <componentref id="forest1" />
+                <componentref id="forest2" />
+                <componentref id="forest3" />
+                <componentref id="forest4" />
+                <componentref id="forest5" />
+                <componentref id="forest6" />
+                <componentref id="forest7" />
+                <componentref id="forest8" />
+                <componentref id="forest9" />
+                <componentref id="forest10" />
+                <componentref id="forest11" />
+                <componentref id="forest12" />
+                <componentref id="forest13" />
+                <componentref id="forest14" />
+            </children>
+        </component>
+
+        <component id="forest">
+            <transformation>
+            </transformation>
+            <materials>
+                <material id="defaultMaterial" />
+            </materials>
+            <texture id="forestTexture" />
+            <children>
+                <primitiveref id="bigTree" />
+                <primitiveref id="smallTree" />
+                <primitiveref id="nakedTree" />
+                <primitiveref id="rock" />
+            </children>
+        </component>
+
+        <!-- Left wood-->
+        <component id="forest1">
+            <transformation>
+                <translate x="10" y="0" z="-10" />
+            </transformation>
+            <materials>
+                <material id="defaultMaterial" />
+            </materials>
+            <texture id="forestTexture" />
+            <children>
+                <componentref id="forest" />
+            </children>
+        </component>
+
+        <component id="forest2">
+            <transformation>
+                <translate x="15" y="0" z="-15" />
+            </transformation>
+            <materials>
+                <material id="defaultMaterial" />
+            </materials>
+            <texture id="forestTexture" />
+            <children>
+                <componentref id="forest" />
+            </children>
+        </component>
+        <component id="forest3">
+            <transformation>
+                <translate x="12" y="0" z="-20" />
+            </transformation>
+            <materials>
+                <material id="defaultMaterial" />
+            </materials>
+            <texture id="forestTexture" />
+            <children>
+                <componentref id="forest" />
+            </children>
+        </component>
+
+        <!--Right Wood-->
+        <component id="forest4">
+            <transformation>
+                <translate x="12" y="0" z="34" />
+            </transformation>
+            <materials>
+                <material id="defaultMaterial" />
+            </materials>
+            <texture id="forestTexture" />
+            <children>
+                <componentref id="forest" />
+            </children>
+        </component>
+        <component id="forest5">
+            <transformation>
+                <translate x="20" y="0" z="40" />
+            </transformation>
+            <materials>
+                <material id="defaultMaterial" />
+            </materials>
+            <texture id="forestTexture" />
+            <children>
+                <componentref id="forest" />
+            </children>
+        </component>
+
+        <!-- Front wood-->
+        <component id="forest6">
+            <transformation>
+                <translate x="40" y="0" z="16" />
+            </transformation>
+            <materials>
+                <material id="defaultMaterial" />
+            </materials>
+            <texture id="forestTexture" />
+            <children>
+                <componentref id="forest" />
+            </children>
+        </component>
+        <component id="forest7">
+            <transformation>
+                <translate x="39" y="0" z="19" />
+            </transformation>
+            <materials>
+                <material id="defaultMaterial" />
+            </materials>
+            <texture id="forestTexture" />
+            <children>
+                <componentref id="forest" />
+            </children>
+        </component>
+
+        <component id="forest8">
+            <transformation>
+                <translate x="20" y="0" z="25" />
+            </transformation>
+            <materials>
+                <material id="defaultMaterial" />
+            </materials>
+            <texture id="forestTexture" />
+            <children>
+                <componentref id="forest" />
+            </children>
+        </component>
+
+        <!--Back Wood-->
+        <component id="forest9">
+            <transformation>
+                <translate x="-36" y="0" z="16" />
+            </transformation>
+            <materials>
+                <material id="defaultMaterial" />
+            </materials>
+            <texture id="forestTexture" />
+            <children>
+                <componentref id="forest" />
+            </children>
+        </component>
+
+        <component id="forest10">
+            <transformation>
+                <translate x="-25" y="0" z="24" />
+            </transformation>
+            <materials>
+                <material id="defaultMaterial" />
+            </materials>
+            <texture id="forestTexture" />
+            <children>
+                <componentref id="forest" />
+            </children>
+        </component>
+
+        <component id="forest11">
+            <transformation>
+                <translate x="-18" y="0" z="4" />
+            </transformation>
+            <materials>
+                <material id="defaultMaterial" />
+            </materials>
+            <texture id="forestTexture" />
+            <children>
+                <componentref id="forest" />
+            </children>
+        </component>
+
+        <component id="forest12">
+            <transformation>
+                <translate x="40" y="0" z="16" />
+            </transformation>
+            <materials>
+                <material id="defaultMaterial" />
+            </materials>
+            <texture id="forestTexture" />
+            <children>
+                <componentref id="forest" />
+            </children>
+        </component>
+        <component id="forest13">
+            <transformation>
+                <translate x="39" y="0" z="19" />
+            </transformation>
+            <materials>
+                <material id="defaultMaterial" />
+            </materials>
+            <texture id="forestTexture" />
+            <children>
+                <componentref id="forest" />
+            </children>
+        </component>
+
+        <component id="forest14">
+            <transformation>
+                <translate x="20" y="0" z="25" />
+            </transformation>
+            <materials>
+                <material id="defaultMaterial" />
+            </materials>
+            <texture id="forestTexture" />
+            <children>
+                <componentref id="forest" />
+            </children>
+        </component>
+    
+
+         <!-- Stars background -->
+        <component id="background">
+            <transformation>
+                <scale x="-100.0" y="-100.0" z="-100.0" />
+                <rotate axis="x" angle="-90" />
+            </transformation>
+            <materials>
+                <material id="defaultMaterial" />
+            </materials>
+            <texture id="snowTexture" length_s="1.0" length_t="1.0" />
+            <children>
+                <primitiveref id="sphere" />
+            </children>
+        </component>    
+
+         <!-- Snow Floor -->
+        <component id="floor">
+            <transformation>
+                <translate x="0" y="-2.5" z="0" />
+                <scale x="100.0" y="100.0" z="100.0" />
+                <rotate axis="x" angle="-90" />
+            </transformation>
+            <materials>
+                <material id="defaultMaterial" />
+            </materials>
+            <texture id="snowTexture" length_s="1.0" length_t="1.0" />
+            <children>
+                <primitiveref id="square20" />
+            </children>
+        </component>    
+
+        <!-- Crown -->
+        <component id="crown" >
+            <transformation>
+            <translate x="0" y="3.0" z="0" />
+            <scale x="0.4" y="0.4" z="0.4" />
+            <rotate axis="x" angle="-90"/>
+            </transformation>
+            <materials>
+            <material id="crownMaterial" />
+            </materials>
+            <texture id="crownTexture" />
+            <children>
+            <componentref id="crownCircle" />
+            <componentref id="crownPeaks" />
+            </children>
+        </component>
+        <!-- Crown base circle -->
+        <component id="crownCircle" >
+            <transformation>
+            <rotate axis="z" angle="-12.5"/>
+            </transformation>
+            <materials>
+            <material id="crownMaterial" />
+            </materials>
+            <texture id="crownTexture" />
+            <children>
+            <primitiveref id="crown" />
+            </children>
+        </component>
+        <!-- Crown Peaks -->
+        <component id="crownPeaks" >
+            <transformation>
+            </transformation>
+            <materials>
+                <material id="crownMaterial" />
+            </materials>
+            <texture id="crownTexture" />
+            <children>
+                <componentref id="crownPeak" />
+                <componentref id="crownPeak1" />
+            </children>
+        </component>
+        <!-- Crown Peak Component -->
+        <component id="crownPeak" >
+            <transformation>
+                <translate x="0.0" y="2" z="0.4" />
+                <rotate axis="z" angle="45"/>
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <texture id="inherit" />
+            <children>
+                <primitiveref id="crownPeak" />
+            </children>
+        </component>
+        <!-- Crown individual Peaks -->
+        <component id="crownPeak1" >
+            <transformation>
+                <rotate axis="z" angle="25.7"/>
+            </transformation>
+            <materials>
+            <material id="inherit" />
+            </materials>
+            <texture id="inherit" />
+            <children>
+                <componentref id="crownPeak" />
+                <componentref id="crownPeak2" />
+            </children>
+        </component>
+        <component id="crownPeak2" >
+            <transformation>
+                <rotate axis="z" angle="25.7"/>
+            </transformation>
+            <materials>
+            <material id="inherit" />
+            </materials>
+            <texture id="inherit" />
+            <children>
+                <componentref id="crownPeak" />
+                <componentref id="crownPeak3" />
+            </children>
+        </component>
+        <component id="crownPeak3" >
+            <transformation>
+                <rotate axis="z" angle="25.7"/>
+            </transformation>
+            <materials>
+            <material id="inherit" />
+            </materials>
+            <texture id="inherit" />
+            <children>
+                <componentref id="crownPeak" />
+                <componentref id="crownPeak4" />
+            </children>
+        </component>
+        <component id="crownPeak4" >
+            <transformation>
+                <rotate axis="z" angle="25.7"/>
+            </transformation>
+            <materials>
+            <material id="inherit" />
+            </materials>
+            <texture id="inherit" />
+            <children>
+                <componentref id="crownPeak" />
+                <componentref id="crownPeak5" />
+            </children>
+        </component>
+        <component id="crownPeak5" >
+            <transformation>
+                <rotate axis="z" angle="25.7"/>
+            </transformation>
+            <materials>
+            <material id="inherit" />
+            </materials>
+            <texture id="inherit" />
+            <children>
+                <componentref id="crownPeak" />
+                <componentref id="crownPeak6" />
+            </children>
+        </component>
+        <component id="crownPeak6" >
+            <transformation>
+                <rotate axis="z" angle="25.7"/>
+            </transformation>
+            <materials>
+            <material id="inherit" />
+            </materials>
+            <texture id="inherit" />
+            <children>
+                <componentref id="crownPeak" />
+                <componentref id="crownPeak7" />
+            </children>
+        </component>
+        <component id="crownPeak7" >
+            <transformation>
+                <rotate axis="z" angle="25.7"/>
+            </transformation>
+            <materials>
+            <material id="inherit" />
+            </materials>
+            <texture id="inherit" />
+            <children>
+                <componentref id="crownPeak" />
+                <componentref id="crownPeak8" />
+            </children>
+        </component>
+        <component id="crownPeak8" >
+            <transformation>
+                <rotate axis="z" angle="25.7"/>
+            </transformation>
+            <materials>
+            <material id="inherit" />
+            </materials>
+            <texture id="inherit" />
+            <children>
+                <componentref id="crownPeak" />
+                <componentref id="crownPeak9" />
+            </children>
+        </component>
+        <component id="crownPeak9" >
+            <transformation>
+                <rotate axis="z" angle="25.7"/>
+            </transformation>
+            <materials>
+            <material id="inherit" />
+            </materials>
+            <texture id="inherit" />
+            <children>
+                <componentref id="crownPeak" />
+                <componentref id="crownPeak10" />
+            </children>
+        </component>
+        <component id="crownPeak10" >
+            <transformation>
+                <rotate axis="z" angle="25.7"/>
+            </transformation>
+            <materials>
+            <material id="inherit" />
+            </materials>
+            <texture id="inherit" />
+            <children>
+                <componentref id="crownPeak" />
+                <componentref id="crownPeak11" />
+            </children>
+        </component>
+        <component id="crownPeak11" >
+            <transformation>
+                <rotate axis="z" angle="25.7"/>
+            </transformation>
+            <materials>
+            <material id="inherit" />
+            </materials>
+            <texture id="inherit" />
+            <children>
+                <componentref id="crownPeak" />
+                <componentref id="crownPeak12" />
+            </children>
+        </component>
+        <component id="crownPeak12" >
+            <transformation>
+                <rotate axis="z" angle="25.7"/>
+            </transformation>
+            <materials>
+            <material id="inherit" />
+            </materials>
+            <texture id="inherit" />
+            <children>
+                <componentref id="crownPeak" />
+                <componentref id="crownPeak13" />
+            </children>
+        </component>
+        <component id="crownPeak13" >
+            <transformation>
+                <rotate axis="z" angle="25.7"/>
+            </transformation>
+            <materials>
+            <material id="inherit" />
+            </materials>
+            <texture id="inherit" />
+            <children>
+                <componentref id="crownPeak" />
+                <componentref id="crownPeak14" />
+            </children>
+        </component>
+        <component id="crownPeak14" >
+            <transformation>
+                <rotate axis="z" angle="25.7"/>
+            </transformation>
+            <materials>
+            <material id="inherit" />
+            </materials>
+            <texture id="inherit" />
+            <children>
+                <componentref id="crownPeak" />
+                <componentref id="crownPeak15" />
+            </children>
+        </component>
+        <component id="crownPeak15" >
+            <transformation>
+                <rotate axis="z" angle="25.7"/>
+            </transformation>
+            <materials>
+            <material id="inherit" />
+            </materials>
+            <texture id="inherit" />
+            <children>
+                <componentref id="crownPeak" />
+            </children>
+        </component>
+
+        <!-- Snowman Component-->
+        <component id="player1">
+            <transformation>
+                <translate x="0" y="-1.0" z="0" />
+                <scale x="2" y="2" z="2" />
+                <rotate axis="y" angle="180" />
+            </transformation>
+            <materials>
+                <material id="defaultMaterial" />
+            </materials>
+                <texture id="none" />
+            <children>
+                <primitiveref id="sphere" />
+                <componentref id="upperbody" />
+                <componentref id="scarf1" />
+                <componentref id="nose" />
+                <componentref id="eyeLeft" />
+                <componentref id="eyeRight" />
+                <componentref id="arms" />
+            </children>
+        </component>
+
+        <component id="player2">
+            <transformation>
+                <translate x="0" y="-1.0" z="0" />
+                <scale x="2" y="2" z="2" />
+                <rotate axis="y" angle="180" />
+            </transformation>
+            <materials>
+                <material id="defaultMaterial" />
+            </materials>
+                <texture id="none" />
+            <children>
+                <primitiveref id="sphere" />
+                <componentref id="upperbody" />
+                <componentref id="scarf2" />
+                <componentref id="nose" />
+                <componentref id="eyeLeft" />
+                <componentref id="eyeRight" />
+                <componentref id="arms" />
+            </children>
+        </component>
+
+        <component id="upperbody">
+            <transformation>
+              <scale x="0.7" y="0.7" z="0.7" />
+              <translate x="0.0" y="1.8" z="0.0" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+                <texture id="none" />
+            <children>
+                <primitiveref id="sphere" />
+            </children>
+        </component>
+        <component id="arms">
+            <transformation>
+              <translate x="0.0" y="0.2" z="0" />
+            </transformation>
+            <materials>
+                <material id="darkMaterial" />
+            </materials>
+                <texture id="none" />
+            <children>
+                <componentref id="leftArm" />
+                <componentref id="rightArm" />
+            </children>
+        </component>
+        <component id="leftArm">
+            <transformation>
+              <rotate angle="-20" axis="x" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+                <texture id="none" />
+            <children>
+                <primitiveref id="cylinder" />
+            </children>
+        </component>
+        <component id="rightArm">
+            <transformation>
+              <rotate angle="180" axis="y" />
+              <rotate angle="-20" axis="x" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+                <texture id="none" />
+            <children>
+                <primitiveref id="cylinder" />
+            </children>
+        </component>
+
+        <component id="scarf1">
+            <transformation>
+              <translate x="0" y="1" z="0" />
+              <rotate axis="x" angle="90" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <texture id="player1Texture" />
+            <children>
+                <primitiveref id="torus" />
+                <componentref id="lowerScarf1" />
+            </children>
+        </component>
+        <component id="lowerScarf1">
+            <transformation>
+              <translate x="0.4" y="0" z="0.6" />
+              <rotate axis="x" angle="70" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+                <texture id="inherit" />
+            <children>
+                <primitiveref id="torus" />
+            </children>
+        </component>
+
+        <component id="scarf2">
+            <transformation>
+              <translate x="0" y="1" z="0" />
+              <rotate axis="x" angle="90" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+                <texture id="player2Texture" />
+            <children>
+                <primitiveref id="torus" />
+                <componentref id="lowerScarf2" />
+            </children>
+        </component>
+       <component id="lowerScarf2">
+            <transformation>
+              <translate x="0.4" y="0" z="0.6" />
+              <rotate axis="x" angle="70" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+                <texture id="inherit" />
+            <children>
+                <primitiveref id="torus" />
+            </children>
+        </component>
+        <component id="nose">
+            <transformation>
+              <translate x="0.5" y="1.5" z="0" />
+              <rotate axis="y" angle="90" />
+            </transformation>
+            <materials>
+                <material id="orangeMaterial" />
+            </materials>
+                <texture id="none" />
+            <children>
+                <primitiveref id="cone" />
+            </children>
+        </component>
+        <component id="eyeLeft">
+            <transformation>
+              <translate x="0.55" y="1.6" z="0.2" />
+              <rotate axis="y" angle="90" />
+              <scale x="0.05" y="0.05" z="0.05" />
+            </transformation>
+            <materials>
+                <material id="darkMaterial" />
+            </materials>
+                <texture id="none" />
+            <children>
+                <primitiveref id="sphere" />
+            </children>
+        </component>
+        <component id="eyeRight">
+            <transformation>
+              <translate x="0.55" y="1.6" z="-0.2" />
+              <rotate axis="y" angle="90" />
+              <scale x="0.05" y="0.05" z="0.05" />
+            </transformation>
+            <materials>
+                <material id="darkMaterial" />
+            </materials>
+                <texture id="none" />
+            <children>
+                <primitiveref id="sphere" />
+            </children>
+        </component>
+
+        <!-- Star Logo -->
+        <component id="star">
+            <transformation>
+                <rotate axis="z" angle="90" />
+                <translate x="2.2" y="0.0" z="2.8" />
+            </transformation>
+            <materials>
+                <material id="darkMaterial" />
+            </materials>
+            <texture id="none" />
+            <children>
+                <componentref id="starArm" />
+                <componentref id="starArmLeft" />
+                <componentref id="starArmRight" />
+                <componentref id="starArmDownRight" />
+                <componentref id="starArmDownLeft" />
+
+            </children>
+        </component>
+        <!-- Star Components -->
+        <component id="starArm">
+            <transformation>
+                <scale x="0.1" y="0.5" z="1.0" />
+                <translate x="-0.5" y="-0.5" z="0.0" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <texture id="none" />
+            <children>
+                <primitiveref id="tentNurb" />
+                <componentref id="reverseStarArm" />
+            </children>
+        </component>
+        <component id="reverseStarArm">
+            <transformation>
+                <scale x="-1.0" y="1.0" z="1.0" />
+                <translate x="-1.0" y="0.0" z="0.0" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+                <texture id="none" />
+            <children>
+                <primitiveref id="tentNurb" />
+            </children>
+        </component>
+        <component id="starArmLeft">
+            <transformation>
+                <rotate axis="x" angle="72" />
+                <translate x="0.0" y="-0.32" z="0.24" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <texture id="none" />
+            <children>
+                <componentref id="starArm" />
+            </children>
+        </component>
+        <component id="starArmDownLeft">
+            <transformation>
+                <rotate axis="x" angle="72" />
+                <translate x="0.0" y="-0.31" z="0.23" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <texture id="none" />
+            <children>
+                <componentref id="starArmLeft" />
+            </children>
+        </component>
+        <component id="starArmRight">
+            <transformation>
+                <rotate axis="x" angle="-72" />
+                <translate x="0.0" y="0.32" z="0.24" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <texture id="none" />
+            <children>
+                <componentref id="starArm" />
+            </children>
+        </component>
+        <component id="starArmDownRight">
+            <transformation>
+                <rotate axis="x" angle="-72" />
+                <translate x="0.0" y="0.31" z="0.23" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <texture id="none" />
+            <children>
+                <componentref id="starArmRight" />
+            </children>
+        </component>
+    </components>
+</sxs>
